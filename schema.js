@@ -3,21 +3,32 @@ export const typeDefs = `#graphql
     id: ID!
     title: String!
     platform: [String!]!
+    reviews: [Review!]
   }
   type Review {
     id: ID!
     rating: Int!
     content: String!
+    game: Game!
+    creator: Creator!
   }
   type Creator {
     id: ID!
     name: String!
     verified: Boolean
+    reviews: [Review!]
+    games: [Game!]
   }
   type Query {
+    #list queries
     reviews: [Review]
     games: [Game]
     creators: [Creator]
+
+    #retrieve queries
+    review(id: ID): Review
+    game(id: ID): Game
+    creator(id: ID): Creator
   }
 `;
 
