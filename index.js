@@ -48,7 +48,7 @@ const resolvers = {
       return db.games.find(game => game.id === parent.id)
     },
     creator(parent, args, context){
-      return db.creators.find(creator => creator.id === parent.id)
+      return db.creators.find(creator => creator.id === parent.creator_id)
     }
   }
 }
