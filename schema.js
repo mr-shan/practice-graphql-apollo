@@ -1,4 +1,4 @@
-export const typeDefs = `#graphql
+const typeDefs = `#graphql
   type Game {
     id: ID!
     title: String!
@@ -19,6 +19,10 @@ export const typeDefs = `#graphql
     reviews: [Review!]
     games: [Game!]
   }
+  type Platform {
+    name: String!
+    games: [Game!]
+  }
   type Query {
     #list queries
     reviews: [Review]
@@ -29,6 +33,9 @@ export const typeDefs = `#graphql
     review(id: ID): Review
     game(id: ID): Game
     creator(id: ID): Creator
+
+    #special queries
+    platforms(name: String): [Platform]
   }
   type Mutation {
     addGame(game: AddGameInput!): Game
@@ -44,6 +51,8 @@ export const typeDefs = `#graphql
     platform: [String]
   }
 `;
+
+export default typeDefs;
 
 // types available in graphQL
 // int, float, string, boolean, ID

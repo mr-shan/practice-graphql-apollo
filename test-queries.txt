@@ -1,0 +1,50 @@
+mutation AddGame($game: AddGameInput!) {
+  addGame(game: $game) {
+    title,
+    platform,
+    id
+  }
+}
+
+mutation DeleteGame {
+  deleteGame(id: 1) {
+    title
+  }
+}
+
+query ReviewQuery {
+  reviews {
+    id
+    content
+    creator {
+      name
+    }
+  }
+}
+
+query TestQuery {
+  games {
+    title
+    platform
+  }
+}
+
+
+
+
+Variables:
+
+AddGameInput: {
+  "game": {
+    "title": "Forza Horizon 5",
+    "platform": ["Xbox", "PC"]
+  }
+}
+
+UpdateGameInput: {
+  "updateGameId": "1",
+  "payload": {
+    "title": "Zelda",
+    "platform": ["Switch", "PS Vita"]
+  }
+}
